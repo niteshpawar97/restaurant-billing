@@ -3,7 +3,7 @@ import React from 'react';
 import samosa from '../images/SamosaAloo.png'
 const MenuItemCard = ({ item }) => {
   return (
-    <div className="max-w-xs w-full bg-green-300 shadow-lg rounded-lg overflow-hidden m-4">
+    <div className="max-w-xs w-full bg-yellow-200 shadow-lg rounded-lg overflow-hidden m-4">
       <img
         className="w-full h-56 object-cover object-center"
         src={samosa}

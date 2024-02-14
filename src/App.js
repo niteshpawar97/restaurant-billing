@@ -3,21 +3,17 @@ import MenuItemCard from "./components/MenuItemCard";
 
 const App = () => {
   const menuItems = [
-    { id: 1, name: "Samosa", description: "Delicious samosa", price: 2.5 },
-    { id: 2, name: "Kachodi", description: "Tasty kachodi", price: 3 },
-    { id: 3, name: "Chai", description: "Refreshing chai", price: 1.5 },
-    { id: 4, name: "Biryani", description: "Flavorful biryani", price: 8 },
-    { id: 5, name: "Pav Bhaji", description: "Spicy pav bhaji", price: 6 },
+    { id: 1, name: "Samosa", description: "Delicious samosa", price: 50 },
+    { id: 2, name: "Kachodi", description: "Tasty kachodi", price: 60 },
+    { id: 3, name: "Chai", description: "Refreshing chai", price: 30 },
+    { id: 4, name: "Biryani", description: "Flavorful biryani", price: 320 },
+    { id: 5, name: "Pav Bhaji", description: "Spicy pav bhaji", price: 240 },
     {
       id: 6,
       name: "Paneer Tikka",
       description: "Grilled paneer tikka",
-      price: 7,
+      price: 280,
     },
-    { id: 7, name: "Dosa", description: "Crispy dosa with chutney", price: 4 },
-    { id: 8, name: "Pakora", description: "Crunchy pakora", price: 3.5 },
-    { id: 9, name: "Pizza", description: "Cheesy pizza", price: 9 },
-    { id: 10, name: "Burger", description: "Juicy burger", price: 5.5 },
   ];
 
   const [selectedItems, setSelectedItems] = useState([]);
@@ -136,7 +132,8 @@ const App = () => {
   return (
     <div className="flex">
       <div className="bg-gray-100 p-4">
-        <h2 className="text-lg font-semibold mb-4">Store Name: {storeName}</h2>
+        <h2 className="text-lg font-semibold">Store Name: {storeName}</h2>
+        <p className="text-base font-light mb-4">{address}</p>
         <h2 className="text-lg font-semibold mb-4">Menu Items</h2>
         <div className="flex flex-wrap justify-center">
           {menuItems.map((item) => (
