@@ -67,10 +67,16 @@ const App = () => {
   const printInvoice = () => {
     const printableContent = selectedItems
       .map((selectedItem, index) => {
-        const totalItemPrice = (selectedItem.item.price * selectedItem.quantity).toFixed(2);
+        const totalItemPrice = (
+          selectedItem.item.price * selectedItem.quantity
+        ).toFixed(2);
         return `
         <div style="margin-bottom: 10px;">
-          <p style="margin-bottom: 5px;">#${index + 1}# ${selectedItem.item.name} ${selectedItem.item.price.toFixed(2)} x (${selectedItem.quantity})  ₹ ${totalItemPrice}</p>
+          <p style="margin-bottom: 5px;">#${index + 1}# ${
+          selectedItem.item.name
+        } ${selectedItem.item.price.toFixed(2)} x (${
+          selectedItem.quantity
+        })  ₹ ${totalItemPrice}</p>
           
         </div>
       `;
@@ -96,18 +102,16 @@ const App = () => {
         <head>
           <title>Invoice</title>
           ${printableStyles}
+         
         </head>
         <body>
           <div style="width: 3in; margin: 0 auto; padding: 10px;">
-            <h1 style="text-align: center; margin-bottom: 10px;">Invoice</h1>
-            <div>Date: ${currentDate}</div>
-            <div>Time: ${currentTime}</div>
-            <div>Store Name: ${storeName}</div>
-            <div>Address: ${address}</div>
-            <div>Contact Number: ${contactNumber}</div>
-            <div>Invoice Number: ${invoiceNumber}</div>
+            <h1 style="text-align: center; margin-bottom: 10px;">Token Invoice</h1>
+            <div style="margin: 0; text-align: center; font-weight: bold;">#${invoiceNumber}</div>
+            <div>Date: ${currentDate}  ${currentTime}</div>
+            
             <hr style="margin: 10px 0;">
-            <div>#------Item---------Rate---QTY---Total</div>
+            <div>#------Item----------Rate------QTY-----Total</div>
             ${printableContent}
             <hr style="margin: 0px 0;">
             <div style="margin-top: 10px;">
@@ -115,6 +119,12 @@ const App = () => {
               <p>Tax (10%): ₹ ${(calculateSubtotal() * 0.1).toFixed(2)}</p>
               <p>Total Amount: ₹ ${calculateTotal()}</p>
             </div>
+
+            <hr style="margin: 0; text-align: center;">
+            <div style="margin: 0; text-align: center; font-weight: bold;">${storeName}</div>
+            <div style="margin: 0; text-align: center; font-weight: bold;">${address}</div>
+            <div style="margin: 0; text-align: center; font-weight: bold;">${contactNumber}</div>
+
           </div>
         </body>
       </html>
@@ -131,13 +141,13 @@ const App = () => {
 
   return (
     <div className="flex">
-      <div className="bg-gray-100 p-4">
+      <div className="bg-gray-100 p-4 w-2/3">
         <h2 className="text-lg font-semibold">Store Name: {storeName}</h2>
         <p className="text-base font-light mb-4">{address}</p>
         <h2 className="text-lg font-semibold mb-4">Menu Items</h2>
         <div className="flex flex-wrap justify-center">
           {menuItems.map((item) => (
-            <div key={item.id} className="m-4">
+            <div key={item.id} className="m-4 ">
               <MenuItemCard item={item} />
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
@@ -149,7 +159,7 @@ const App = () => {
           ))}
         </div>
       </div>
-      <div className="w-1/2 bg-gray-200 p-4">
+      <div className="w-1/3 bg-gray-200 p-4 fixed inset-y-0 right-0 overflow-hidden">
         <h2 className="text-lg font-semibold mb-4">Selected Items</h2>
         {selectedItems.map((selectedItem) => (
           <div
@@ -160,7 +170,11 @@ const App = () => {
               {selectedItem.item.name}{" "}
               {selectedItem.quantity > 1 && `(${selectedItem.quantity})`}
             </p>
-            <p> ₹{selectedItem.item.price.toFixed(2)} x {selectedItem.quantity} = ₹{(selectedItem.item.price * selectedItem.quantity).toFixed(2)}</p>
+            <p>
+              {" "}
+              ₹{selectedItem.item.price.toFixed(2)} x {selectedItem.quantity} =
+              ₹{(selectedItem.item.price * selectedItem.quantity).toFixed(2)}
+            </p>
             <button
               className="text-red-500 font-semibold"
               onClick={() => removeFromInvoice(selectedItem.item.id)}
@@ -171,9 +185,15 @@ const App = () => {
         ))}
         {selectedItems.length > 0 && (
           <div className="mt-4">
-            <p className="text-lg font-semibold">Subtotal: ₹{calculateSubtotal()}</p>
-            <p className="text-lg font-semibold">Tax (10%): ₹{(calculateSubtotal() * 0.1).toFixed(2)}</p>
-            <p className="text-lg font-semibold">Total Amount: ₹{calculateTotal()}</p>
+            <p className="text-lg font-semibold">
+              Subtotal: ₹{calculateSubtotal()}
+            </p>
+            <p className="text-lg font-semibold">
+              Tax (10%): ₹{(calculateSubtotal() * 0.1).toFixed(2)}
+            </p>
+            <p className="text-lg font-semibold">
+              Total Amount: ₹{calculateTotal()}
+            </p>
             <button
               className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4"
               onClick={printInvoice}
