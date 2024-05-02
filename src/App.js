@@ -11,12 +11,7 @@ const App = () => {
     { id: 3, name: "Chai", image: pavBhaji, description: "Refreshing chai", price: 30 },
     { id: 4, name: "Biryani", image: samosa, description: "Flavorful biryani", price: 320 },
     { id: 5, name: "Pav Bhaji", image: samosa, description: "Spicy pav bhaji", price: 240 },
-    {
-      id: 6,
-      name: "Paneer Tikka" , image: samosa,
-      description: "Grilled paneer tikka",
-      price: 280,
-    },
+    { id: 6, name: "Paneer Tikka" , image: samosa, description: "Grilled paneer tikka", price: 280},
   ];
 
   const [selectedItems, setSelectedItems] = useState([]);
@@ -150,20 +145,20 @@ const App = () => {
         <h2 className="text-lg font-semibold mb-4">Menu Items</h2>
         <div className="flex flex-wrap justify-center">
           {menuItems.map((item) => (
-            <div key={item.id} className="m-4 ">
+            <div key={item.id} className="m-4 flex flex-col items-center">
               <MenuItemCard item={item} />
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
+                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
                 onClick={() => addToInvoice(item)}
               >
-                Add to Invoice
+                Add to Cart
               </button>
             </div>
           ))}
         </div>
       </div>
       <div className="w-1/3 bg-gray-200 p-4 fixed inset-y-0 right-0 overflow-hidden">
-        <h2 className="text-lg font-semibold mb-4">Selected Items</h2>
+        <h2 className="text-lg font-semibold mb-4 animate-bounce">Selected Items (Cart)</h2>
         {selectedItems.map((selectedItem) => (
           <div
             key={selectedItem.item.id}
