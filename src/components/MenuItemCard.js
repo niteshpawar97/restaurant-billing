@@ -1,12 +1,12 @@
 // src/components/MenuItemCard.js
 import React from 'react';
-import samosa from '../images/SamosaAloo.png'
+
 const MenuItemCard = ({ item }) => {
   return (
     <div className="max-w-xs w-full bg-yellow-200 shadow-lg rounded-lg overflow-hidden m-4">
       <img
         className="w-full h-28 object-cover object-center"
-        src={samosa}
+        src={item.image}
         alt="Item"
       />
       <div className="p-4">

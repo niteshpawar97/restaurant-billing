@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import MenuItemCard from "./components/MenuItemCard";
 
+import samosa from './images/SamosaAloo.png';
+import paneerTikka from './images/paneer-tikka.webp';
+import pavBhaji from './images/pav-bhaji.png';
 const App = () => {
   const menuItems = [
-    { id: 1, name: "Samosa", description: "Delicious samosa", price: 50 },
-    { id: 2, name: "Kachodi", description: "Tasty kachodi", price: 60 },
-    { id: 3, name: "Chai", description: "Refreshing chai", price: 30 },
-    { id: 4, name: "Biryani", description: "Flavorful biryani", price: 320 },
-    { id: 5, name: "Pav Bhaji", description: "Spicy pav bhaji", price: 240 },
+    { id: 1, name: "Samosa", image: samosa, description: "Delicious samosa", price: 50 },
+    { id: 2, name: "Kachodi", image: paneerTikka, description: "Tasty kachodi", price: 60 },
+    { id: 3, name: "Chai", image: pavBhaji, description: "Refreshing chai", price: 30 },
+    { id: 4, name: "Biryani", image: samosa, description: "Flavorful biryani", price: 320 },
+    { id: 5, name: "Pav Bhaji", image: samosa, description: "Spicy pav bhaji", price: 240 },
     {
       id: 6,
-      name: "Paneer Tikka",
+      name: "Paneer Tikka" , image: samosa,
       description: "Grilled paneer tikka",
       price: 280,
     },
