@@ -4,14 +4,18 @@ import MenuItemCard from "./components/MenuItemCard";
 import samosa from './images/SamosaAloo.png';
 import paneerTikka from './images/paneer-tikka.webp';
 import pavBhaji from './images/pav-bhaji.png';
+import biryani from './images/biryani.png';
+import Chai from './images/Chai.png';
+import Kachodi from './images/Kachodi.png';
+
 const App = () => {
   const menuItems = [
     { id: 1, name: "Samosa", image: samosa, description: "Delicious samosa", price: 50 },
-    { id: 2, name: "Kachodi", image: paneerTikka, description: "Tasty kachodi", price: 60 },
-    { id: 3, name: "Chai", image: pavBhaji, description: "Refreshing chai", price: 30 },
-    { id: 4, name: "Biryani", image: samosa, description: "Flavorful biryani", price: 320 },
-    { id: 5, name: "Pav Bhaji", image: samosa, description: "Spicy pav bhaji", price: 240 },
-    { id: 6, name: "Paneer Tikka" , image: samosa, description: "Grilled paneer tikka", price: 280},
+    { id: 2, name: "Kachodi", image: Kachodi, description: "Tasty kachodi", price: 60 },
+    { id: 3, name: "Chai", image: Chai, description: "Refreshing chai", price: 30 },
+    { id: 4, name: "Biryani", image: biryani, description: "Flavorful biryani", price: 320 },
+    { id: 5, name: "Pav Bhaji", image: pavBhaji, description: "Spicy pav bhaji", price: 240 },
+    { id: 6, name: "Paneer Tikka" , image: paneerTikka, description: "Grilled paneer tikka", price: 280},
   ];
 
   const [selectedItems, setSelectedItems] = useState([]);
